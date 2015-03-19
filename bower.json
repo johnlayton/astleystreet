@@ -1,0 +1,25 @@
+{
+  "name"         : "astleystreet",
+  "version"      : "0.0.1",
+  "authors"      : [
+    "john layton <johnstewartlayton@gmail.com>"
+  ],
+  "dependencies" : {
+    "polymer"        : "polymer/polymer",
+    "paper-input"    : "polymer/paper-input",
+    "paper-progress" : "polymer/paper-progress",
+    "paper-shadow"   : "polymer/paper-shadow",
+    "moment"         : "~2.8.4"
+  },
+  "moduleType"   : [
+    "node"
+  ],
+  "license"      : "MIT",
+  "ignore"       : [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

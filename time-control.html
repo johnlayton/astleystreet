@@ -1,0 +1,135 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-ajax/core-ajax.html">
+<link rel="import" href="../leaflet-map/leaflet-import.html">
+
+<link rel="import" href="../paper-slider/paper-slider.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-shadow/paper-shadow.html">
+<link rel="import" href="../paper-interval-slider/paper-interval-slider.html">
+
+<script src="../moment/moment.js"></script>
+
+<!--
+
+##### Example
+
+	<time-control> </time-control>
+
+##### Example
+
+	<time-control>
+	</time-control>
+
+@element time-control
+-->
+<polymer-element name="time-control" attributes="current minimum maximum">
+  <template>
+    <style>
+      :host {
+        /*display: none;*/
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: white;
+      }
+
+      #time {
+        /*position: absolute;*/
+        /*bottom: 10px;*/
+        /*left: 10px;*/
+        /*height: 75px;*/
+        /*width: 250px;*/
+        /*background-color: white;*/
+        /*z-index: 999;*/
+      }
+
+      paper-slider {
+        background-color: white;
+        width: 100%;
+      }
+    </style>
+
+<!--
+    <div class="leaflet-control-container">
+      <div class="leaflet-top leaflet-right">
+        <div class="leaflet-control-zoom leaflet-bar leaflet-control">
+          <a class="leaflet-control-zoom-in" href="#" title="Zoom in">+</a
+            ><a class="leaflet-control-zoom-out" href="#" title="Zoom out">-</a>
+        </div></div><div class="leaflet-top leaflet-right">
+      </div>
+    </div>
+-->
+
+    <paper-shadow id="time" z="2">
+
+      <div vertical center-justified layout>
+
+        <div horizontal center-justified layout>
+          <paper-button id="label">{{ current | toMoment }}</paper-button>
+        </div>
+
+        <div horizontal center-justified layout>
+          <paper-slider id="slider" immediateValue="{{ current }}" step="3600" min="{{ minimum }}" max="{{ maximum }}"></paper-slider>
+        </div>
+
+        <time-control-days>
+
+          <template repeat="{{ date in  dates }}">
+
+            <time-control-day date="{{ date }}" current="{{ current }}">
+            </time-control-day>
+
+          </template>
+
+        </time-control-days>
+      </div>
+    </paper-shadow>
+
+  </template>
+
+</polymer-element>
+
+<!--<polymer-element name="time-control-days" attributes="current minimum maximum">-->
+<polymer-element name="time-control-days">
+  <template>
+    <style>
+      :host {
+        background-color: white;
+      }
+
+      div {
+        padding: 0px 10px 10px 10px;
+      }
+    </style>
+
+    <div horizontal center-justified layout>
+
+      <content></content>
+
+    </div>
+
+  </template>
+</polymer-element>
+
+<polymer-element name="time-control-day" attributes="date current" >
+  <template>
+    <style>
+      :host {
+        background-color: white;
+      }
+
+      paper-shadow {
+        height: 50px;
+        width: 35px;
+        margin: 10px 10px 10px 10px;
+        padding: 2px 1px 1px 1px;
+      }
+
+    </style>
+
+    <paper-shadow id="panel" z="1" horizontal center-justified layout>{{ date | toDay }}</paper-shadow>
+
+  </template>
+</polymer-element>
+
+<script src="./time-control.js"> </script>
