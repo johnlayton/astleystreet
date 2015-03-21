@@ -25,7 +25,7 @@ Polymer( 'time-control', {
   },
 
   currentChanged: function() {
-    console.log( "Current Date Changed" );
+    //console.log( "Current Date Changed" );
   },
 
   ready : function() {
@@ -66,11 +66,11 @@ Polymer( 'time-control-days', {
   observe: {
   },
 
-  attributesChanged : function(){
-    console.log( "Attributes Changed..." );
-    console.log( arguments );
-  },
-
+  //attributesChanged : function(){
+  //  console.log( "Attributes Changed..." );
+  //  console.log( arguments );
+  //},
+  //
   created : function () {
   },
 
