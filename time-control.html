@@ -1,11 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../core-ajax/core-ajax.html">
-<link rel="import" href="../leaflet-map/leaflet-import.html">
 
 <link rel="import" href="../paper-slider/paper-slider.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-shadow/paper-shadow.html">
-<link rel="import" href="../paper-interval-slider/paper-interval-slider.html">
+<link rel="import" href="../paper-slider/paper-slider.html">
 
 <script src="../moment/moment.js"></script>
 
@@ -27,10 +25,10 @@
     <style>
       :host {
         /*display: none;*/
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: white;
+        /*position: absolute;*/
+        /*bottom: 10px;*/
+        /*right: 10px;*/
+        /*background-color: white;*/
       }
 
       #time {
@@ -43,10 +41,10 @@
         /*z-index: 999;*/
       }
 
-      paper-slider {
-        background-color: white;
-        width: 100%;
-      }
+      /*paper-slider {*/
+        /*background-color: white;*/
+        /*width: 100%;*/
+      /*}*/
     </style>
 
 <!--
@@ -60,16 +58,19 @@
     </div>
 -->
 
-    <paper-shadow id="time" z="2">
+    <!--<paper-shadow id="time" z="2">-->
 
-      <div vertical center-justified layout>
+      <div layout vertical center-justified>
 
-        <div horizontal center-justified layout>
+        <div layout horizontal center-justified>
           <paper-button id="label">{{ current | toMoment }}</paper-button>
         </div>
 
-        <div horizontal center-justified layout>
-          <paper-slider id="slider" immediateValue="{{ current }}" step="3600" min="{{ minimum }}" max="{{ maximum }}"></paper-slider>
+        <div layout horizontal center-justified>
+          <paper-slider id="slider" immediateValue="{{ current }}"
+                        step="3600" min="{{ minimum }}" max="{{ maximum }}">
+
+          </paper-slider>
         </div>
 
         <time-control-days>
@@ -83,18 +84,20 @@
 
         </time-control-days>
       </div>
-    </paper-shadow>
+    <!--</paper-shadow>-->
 
   </template>
 
 </polymer-element>
 
-<!--<polymer-element name="time-control-days" attributes="current minimum maximum">-->
+<!--
+  <polymer-element name="time-control-days" attributes="current minimum maximum">
+-->
 <polymer-element name="time-control-days">
   <template>
     <style>
       :host {
-        background-color: white;
+        /*background-color: white;*/
       }
 
       div {
@@ -102,7 +105,7 @@
       }
     </style>
 
-    <div horizontal center-justified layout>
+    <div layout horizontal center-justified>
 
       <content></content>
 
@@ -115,7 +118,7 @@
   <template>
     <style>
       :host {
-        background-color: white;
+        /*background-color: white;*/
       }
 
       paper-shadow {
@@ -127,7 +130,7 @@
 
     </style>
 
-    <paper-shadow id="panel" z="1" horizontal center-justified layout>{{ date | toDay }}</paper-shadow>
+    <paper-shadow id="panel" z="1" horizontal layout center-justified>{{ date | toDay }}</paper-shadow>
 
   </template>
 </polymer-element>

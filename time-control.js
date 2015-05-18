@@ -4,7 +4,7 @@ Polymer( 'time-control', {
 
   minimum : moment().add( 0, 'days' ).startOf( 'day' ).unix(),
   maximum : moment().add( 6, 'days' ).startOf( 'day' ).unix(),
-  current : moment().startOf( 'hour' ).unix(),
+  current : moment().add( 0, 'days' ).startOf( 'hour' ).unix(),
 
   pattern : 'HH:mm DD-MMM-YYYY',
 
@@ -25,7 +25,6 @@ Polymer( 'time-control', {
   },
 
   currentChanged: function() {
-    //console.log( "Current Date Changed" );
   },
 
   ready : function() {
@@ -66,11 +65,6 @@ Polymer( 'time-control-days', {
   observe: {
   },
 
-  //attributesChanged : function(){
-  //  console.log( "Attributes Changed..." );
-  //  console.log( arguments );
-  //},
-  //
   created : function () {
   },
 
@@ -85,9 +79,11 @@ Polymer( 'time-control-day', {
 
   pattern : 'ddd',
 
+/*
   observe: {
     'current': 'currentChanged'
   },
+*/
 
   currentChanged: function() {
     this.$.panel.setZ( moment( this.date ).isSame( moment.unix( this.current ), 'day' ) ? 2 : 1 );
